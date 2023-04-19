@@ -12,10 +12,6 @@ class VerifyUser extends StatefulWidget {
 }
 
 class VerifyUserState extends State<VerifyUser> {
-  final TextEditingController _fieldOne = TextEditingController();
-  final TextEditingController _fieldTwo = TextEditingController();
-  final TextEditingController _fieldThree = TextEditingController();
-  final TextEditingController _fieldFour = TextEditingController();
 
   var boarderWidth = 1.4;
 
@@ -30,58 +26,24 @@ class VerifyUserState extends State<VerifyUser> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 30),
-                    child: Text('Verify Phone number', style: textBig())),
-                Container(
                   padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      OtpInput(_fieldOne, true),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      OtpInput(_fieldTwo, false),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      OtpInput(_fieldThree, false),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      OtpInput(_fieldFour, false)
                     ],
                   ),
                 ),
                 SizedBox(
                   height: 40,
                 ),
-                Container(
-                    padding: EdgeInsets.only(left: 40, right: 40),
-                    child: Text("Verification Code has been send to +91 7841818938", style: TextStyle(fontSize: 16), textAlign: TextAlign.center,)),
-
-                SizedBox(
-                  height: 60,
-                ),
+             
                 Container(
                     height: 50,
                     width: double.infinity,
                     margin: EdgeInsets.only(bottom: 60),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(13))),
                         onPressed: () {
-
-                          Navigator.of(context).popUntil((route) => route.isFirst);
-
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      MyHomePage(title: 'Home Page')));
-
                         },
                         child: Text(
                           'Verify',
@@ -124,23 +86,13 @@ class OtpInput extends StatelessWidget {
       width: 50,
       child: TextField(
         autofocus: autoFocus,
-        textAlign: TextAlign.center,
-        keyboardType: TextInputType.number,
-        controller: controller,
         maxLength: 1,
         cursorColor: Theme.of(context).primaryColor,
         decoration: InputDecoration(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            counterText: '',
-            hintStyle: TextStyle(color: Colors.black, fontSize: 20.0)
-        ),
-        onChanged: (value) {
-          if (value.length == 1) {
-            FocusScope.of(context).nextFocus();
-          }
-        },
+            counterText: ''
       ),
     );
   }

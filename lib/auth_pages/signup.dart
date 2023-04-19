@@ -18,11 +18,6 @@ class SignUpState extends State<SignUp>{
   bool _obscureText = true;
 
   @override
-  void initState() {
-    _passwordVisible = true;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -32,14 +27,11 @@ class SignUpState extends State<SignUp>{
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 50),
-                    child: Text('Create Account', style: textBig())),
+                SizedBox(
+                  height: 25,
+                ),
                 TextField(
                   decoration: InputDecoration(
-                      labelText: 'Full Name',
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13),
                           borderSide: BorderSide(
                               color: Colors.black, width: boarderWidth)),
                       border: OutlineInputBorder(
@@ -49,34 +41,6 @@ class SignUpState extends State<SignUp>{
                 ),
                 SizedBox(
                   height: 25,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                      labelText: 'Create Username',
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13),
-                          borderSide: BorderSide(
-                              color: Colors.black, width: boarderWidth)),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13),
-                          borderSide: BorderSide(
-                              color: Colors.black, width: boarderWidth))),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                TextField(
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13),
-                          borderSide: BorderSide(
-                              color: Colors.black, width: boarderWidth)),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13),
-                          borderSide: BorderSide(
-                              color: Colors.black, width: boarderWidth))),
                 ),
                 SizedBox(
                   height: 25,
@@ -89,12 +53,7 @@ class SignUpState extends State<SignUp>{
                         _passwordVisible = !_passwordVisible;
                         _obscureText = !_obscureText;
                       });
-                    }, icon: Icon(
-                      _passwordVisible
-                          ? Icons.visibility
-                          : Icons.visibility_off
-                    )),
-                      labelText: 'Password',
+                    },
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(13),
                           borderSide: BorderSide(
@@ -112,17 +71,11 @@ class SignUpState extends State<SignUp>{
                     width: double.infinity,
                     margin: EdgeInsets.only(bottom: 60),
                     child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
+                        style: ElevatedButton(
                             backgroundColor: Colors.black,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(13))),
                         onPressed: () {
-
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      VerifyUser()));
                         },
                         child: Text(
                           'Sign Up',
@@ -137,8 +90,6 @@ class SignUpState extends State<SignUp>{
                 ),
                 InkWell(
                   onTap: (){
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => SignIn()));
                   },
                   child: Text(
                     "Sign In",

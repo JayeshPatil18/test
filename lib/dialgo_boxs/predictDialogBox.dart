@@ -32,14 +32,7 @@ class QueDialogBox extends StatelessWidget {
                   backgroundColor: Colors.green,
                 ),
                 onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Join with ',
-                        style: textStyleBtn(textColor: Colors.white)),
-                    Text('10', style: textStyleBtn(textColor: Colors.white)),
-                    Icon(Icons.currency_rupee, color: starColor()),
-                  ],
+                 
                 )),
           )
         ],

@@ -31,30 +31,6 @@ class RanksPageState extends State<RanksPage>{
 
   static final itemController = ItemScrollController();
 
-  var arrNames = [
-    'Raman',
-    'Ramanauan',
-    'Rajesh',
-    "James",
-    "Hoan",
-    "Rahim" 'Ramanauan',
-    'Rajesh',
-    "James",
-    "Hoan",
-    "Rahim" 'Ramanauan',
-    'Rajesh',
-    "James",
-    "Hoan",
-    "Rahim",
-    "Hoan",
-    "Rahim",
-    'Ramanauan',
-    'Rajesh',
-    "James",
-    "Hoan",
-    "Rahim",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,36 +62,6 @@ class RanksPageState extends State<RanksPage>{
                                     ],
                                   )
                               ),
-                              title: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.only(right: 10),
-                                    width: 80,
-                                    height: 80,
-                                    child: CircleAvatar(
-                                      backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2P3SxrEq6z7iY6dXOD0K18RuW2kHwYHInoI2yANC2XQ&s"),
-                                      radius: 40,
-                                    ),
-                                  ),
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('${user['name']['first'].toString()}', style: textStyleLeader(),),
-                                        Text('${user['email'].toString()}', style: textStyleMinDesc(),),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              trailing: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('Pts.', style: textStyleMinDesc()),
-                                  Text('324', style: textStyleLeader()),
-                                ],
-                              ),
                               contentPadding: EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                               onTap: (){
                                 Navigator.of(context).push(
@@ -130,17 +76,5 @@ class RanksPageState extends State<RanksPage>{
                   ),
                 ),
     );
-  }
-
-  void fetchUsers() async{
-    var url = "https://randomuser.me/api/?results=2";
-    var uri = Uri.parse(url);
-    var response = await http.get(uri);
-    var body = response.body;
-    var json = jsonDecode(body);
-
-    setState(() {
-      users = json['results'];
-    });
   }
 }

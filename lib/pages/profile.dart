@@ -54,63 +54,7 @@ class ProfilePageState extends State<ProfilePage> {
                     height: 16,
                   ),
                   Text(
-                      'Invite more friends and you will get points when they will join app through your link',
-                      style: TextStyle(fontSize: 14, color: Colors.black),
-                      textAlign: TextAlign.center),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    '10 Points for each user',
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  )
-                ],
-              ),
-            ),
-            actions: [
-              Container(
-                  height: 50,
-                  width: double.infinity,
-                  margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(13))),
-                      onPressed: () {},
-                      child: Text(
-                        'Invite',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 18),
-                      ))),
-            ],
-          );
-        });
-  }
-
-  void showLogoutDialog() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Logout', style: textStyleBtn()),
-            content: Text('Do you really want to logout?',
-                style: textStyleSubTitle()),
-            actions: [
-              Container(
-                width: 400,
-                padding: EdgeInsets.only(bottom: 10, left: 20, right: 20),
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: OutlinedButton(
-                            onPressed: () {
+                    
                               Navigator.of(context).popUntil((route) => route.isFirst);
 
                               Navigator.pushReplacement(
@@ -155,18 +99,7 @@ class ProfilePageState extends State<ProfilePage> {
           style: TextStyle(color: Colors.black),
         ),
         actions: <Widget>[
-          Builder(builder: (context) {
-            return IconButton(
-              icon: Icon(
-                Icons.settings,
-              ),
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              },
-            );
-          })
-        ],
-      ),
+          
       endDrawer: Drawer(
         backgroundColor: Colors.white,
         child: Column(
@@ -200,25 +133,6 @@ class ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.card_giftcard,
-                                size: 20,
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 10),
-                                child: Text('Invite and Earn',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .subtitle2!
-                                        .copyWith(fontSize: 16)),
-                              ),
-                            ],
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
                             size: 20,
                           ),
                         ],
@@ -265,12 +179,7 @@ class ProfilePageState extends State<ProfilePage> {
                         ],
                       )),
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  color: defaultBgColor(),
-                  width: double.infinity,
-                  height: 1,
-                ),
+              
                 InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
@@ -358,29 +267,7 @@ class ProfilePageState extends State<ProfilePage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => SettingPage(3)));
                   },
-                  child: Container(
-                      color: Colors.white,
-                      padding: EdgeInsets.all(20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.privacy_tip_outlined,
-                                size: 20,
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 10),
-                                child: Text('Privacy Policy',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .subtitle2!
-                                        .copyWith(fontSize: 16)),
-                              ),
-                            ],
-                          ),
+                  child:
                           Icon(
                             Icons.arrow_forward_ios,
                             size: 20,
@@ -440,44 +327,7 @@ class ProfilePageState extends State<ProfilePage> {
                     closeDialogBox();
                     showLogoutDialog();
                   },
-                  child: Container(
-                      color: Colors.white,
-                      padding: EdgeInsets.all(20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.logout,
-                                size: 20,
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 10),
-                                child: Text('Logout',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .subtitle2!
-                                        .copyWith(fontSize: 16)),
-                              ),
-                            ],
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            size: 20,
-                          ),
-                        ],
-                      )),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  color: defaultBgColor(),
-                  width: double.infinity,
-                  height: 1,
-                ),
-              ],
-            ),
+                
             Container(
                 color: Colors.white,
                 padding: EdgeInsets.all(20),
@@ -516,27 +366,7 @@ class ProfilePageState extends State<ProfilePage> {
                 width: double.infinity,
                 margin: EdgeInsets.all(20),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Stack(children: [
-                      CircleAvatar(
-                        child: Container(
-                            width: 100,
-                            height: 100,
-                            child: Icon(
-                              Icons.person,
-                              size: 80,
-                            )),
-                        backgroundColor: Colors.black12,
-                        radius: 50,
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Icon(Icons.add_circle,
-                            color: Colors.black, size: 30),
-                      ),
-                    ]),
+                  
                     Expanded(
                       child: Container(
                           margin: EdgeInsets.only(left: 20),
@@ -595,63 +425,7 @@ class ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: 20),
-                width: double.infinity,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        elevation: 4,
-                        margin: EdgeInsets.only(left: 10, right: 5),
-                        color: Colors.white,
-                        child: Container(
-                          padding: EdgeInsets.all(8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                  margin: EdgeInsets.only(bottom: 4),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.account_balance_wallet_outlined,
-                                        size: 16,
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.only(left: 4),
-                                        child: Text(
-                                          'Revenue',
-                                          style: textStyleSubTitle(
-                                              textColor: Colors.black),
-                                        ),
-                                      ),
-                                    ],
-                                  )),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '1000',
-                                    style: textStyleDefault(
-                                        textColor: Colors.black),
-                                  ),
-                                  Icon(
-                                    Icons.currency_rupee,
-                                    color: Colors.black,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+             
                     Expanded(
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -699,38 +473,7 @@ class ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        elevation: 4,
-                        margin: EdgeInsets.only(left: 5, right: 10),
-                        color: Colors.white,
-                        child: Container(
-                          padding: EdgeInsets.all(8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                  margin: EdgeInsets.only(bottom: 4),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.leaderboard_outlined,
-                                        size: 16,
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.only(left: 4),
-                                        child: Text(
-                                          'Rank',
-                                          style: textStyleSubTitle(
-                                              textColor: Colors.black),
-                                        ),
-                                      ),
-                                    ],
-                                  )),
+                    
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -823,20 +566,7 @@ class ProfilePageState extends State<ProfilePage> {
                                 child: DiscussModel(),
                               )),
                         ),
-                        InkWell(
-                          onTap: () {
-                            showDialogDiscuss(context);
-                          },
-                          child: Container(
-                              margin: EdgeInsets.only(top: 8),
-                              width: double.infinity,
-                              child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  elevation: elevationValue,
-                                  child: DiscussModel())),
-                        ),
+                      
                       ],
                     ),
                   ),
@@ -865,26 +595,5 @@ class ProfilePageState extends State<ProfilePage> {
                 child: sectionDialog[TabSection1State.currentIndex],
               ),
             ));
-  }
-
-  void showDialogAsk(BuildContext context, int index){
-    showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-                top: Radius.circular(20)
-            )
-        ),
-        builder: (context) => DraggableScrollableSheet(
-          expand: false,
-          initialChildSize: 0.80,
-          maxChildSize: 0.96,
-          minChildSize: 0.60,
-          builder: (context, scrollContoller) => SingleChildScrollView(
-            controller: scrollContoller,
-            child: AskQueDialogBox(),
-          ),
-        ));
   }
 }

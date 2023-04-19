@@ -26,10 +26,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.grey,
-          textTheme: TextTheme(
-            headline1: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-            subtitle2: TextStyle(fontSize: 12 ),
-          )
       ),
       home: SplashPage(),
     );
@@ -49,13 +45,6 @@ class SplashPageState extends State<SplashPage>{
   void initState() {
 
     Timer(Duration(seconds: 1), () {
-      if(true){
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => MyHomePage(title: 'Home Page',)));
-      }else{
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => WelcomePage()));
-      }
     });
   }
 
@@ -104,12 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         // actions: <Widget>[
         //   IconButton(
-        //     icon: Icon(
-        //       Icons.calculate,
-        //     ),
-        //     onPressed: () {
-        //       // do something
-        //     },
         //   )
         // ],
       ),
@@ -129,48 +112,12 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Leaderboard',
-              style: TextStyle(color: Colors.black),
-            ),
-            InkWell(
-              onTap: (){
-                RanksPageState.scrollToIndex(11); // Scrolling Index for My Rank
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(20)
-                ),
-                padding: EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 4),
-                child: Row(
-                  children: [
-                    Icon(Icons.keyboard_arrow_down, color: Colors.white,size: 25,),
-                    Text('My Rank', style: TextStyle(color: Colors.white,fontSize: 14), textAlign: TextAlign.start,),
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
       null,
       // AppBar(
       //   centerTitle: true,
       //   elevation: 0,
       //   backgroundColor: Colors.white,
       //   title: InkWell(
-      //     onTap: () {
-      //       showSearch(
-      //           context: context,
-      //           delegate: CustomSearch());
-      //     },
       //     child: Padding(
       //       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
       //       child: Row(
@@ -207,53 +154,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: defaultBgColor(),
       appBar: appBars[tabIndex],
-      bottomNavigationBar: BottomNavigationBar(
-          type : BottomNavigationBarType.fixed,
-          onTap: (index){
-          setState((){
-            pageIndex = index;
-            switch(pageIndex){
-              case 0:
-                tabIndex = 0;
-                break;
-              case 1:
-                tabIndex = 1;
-                break;
-              case 2:
-                tabIndex = 2;
-                break;
-              case 3:
-                tabIndex = 3;
-                break;
-              case 4:
-                tabIndex = 4;
-                break;
-              default:
-                tabIndex = 0;
-            }
-          });
-        },
+    
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Discussion',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_events),
-            label: 'Games',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('assets/icons/rank2.png'), size: 28,),
-            label: 'Rank',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+         
         ],
         currentIndex: pageIndex,
         selectedItemColor: defaultColorTabSe(),

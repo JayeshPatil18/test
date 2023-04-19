@@ -12,11 +12,6 @@ class SignIn extends StatefulWidget {
   }
 }
 
-class SignInState extends State<SignIn> {
-  var boarderWidth = 1.4;
-  bool _passwordVisible = true;
-  bool _obscureText = true;
-
   @override
   void initState() {
     _passwordVisible = true;
@@ -32,21 +27,7 @@ class SignInState extends State<SignIn> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 50),
-                    child: Text('Sign In Now', style: textBig())),
-                TextField(
-                  decoration: InputDecoration(
-                      labelText: 'Phone number or Username',
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13),
-                          borderSide: BorderSide(
-                              color: Colors.black, width: boarderWidth)),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13),
-                          borderSide: BorderSide(
-                              color: Colors.black, width: boarderWidth))),
-                ),
+                C
                 SizedBox(
                   height: 25,
                 ),
@@ -58,11 +39,6 @@ class SignInState extends State<SignIn> {
                           _passwordVisible = !_passwordVisible;
                           _obscureText = !_obscureText;
                         });
-                      }, icon: Icon(
-                          _passwordVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off
-                      )),
                       labelText: 'Password',
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(13),
@@ -72,20 +48,6 @@ class SignInState extends State<SignIn> {
                           borderRadius: BorderRadius.circular(13),
                           borderSide: BorderSide(
                               color: Colors.black, width: boarderWidth))),
-                ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
-                      },
-                        child: Text("Forgot Password?", textAlign: TextAlign.center)),
-                  ),
-                ),
-                SizedBox(
-                  height: 40,
                 ),
                 Container(
                     height: 50,
@@ -116,11 +78,6 @@ class SignInState extends State<SignIn> {
                 Container(
                   height: 4,
                 ),
-                InkWell(
-                  onTap: (){
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => SignUp()));
-                  },
                   child: Text(
                     "Sign Up",
                     style: textStyleLeader(),
